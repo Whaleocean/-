@@ -30,4 +30,27 @@ else: #当没有错误发生的时候
     
   #双重检查.
   ```
+```#综合起来
+from urllib import request
+from bs4 import BeatifulSoup
+from urllib.error import HTTPError
+def get_title(url):
+  try:
+     html = request.urlopen(url)
+  except HTTPError:
+     return None
+  else:
+        try:
+          bsObj = BeautifulSoup(html.read())
+          title = bsObj.body.h1
+        except AttributeError:
+          return None
+        else:
+          return title
+          
+titile = get_title("http://www.pythonscraping.com/pages/page1.html")
+if titile == None:
+  pirnt("titile do not exist")
+else:
+  print(title)
   
