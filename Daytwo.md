@@ -7,8 +7,9 @@ try: html = urlopen("http://www.pythonscraping.com/pages/page1.html")
 except HTTPError as e: print(e) # 返回空值，中断程序，或者执行另一个方案
 else: # 程序继续。注意：如果你已经在上面异常捕捉那一段代码里返回或中断（break）， # 那么就不需要使用else语句了，这段代码也不会执行
 ```
-第一种错误会抛出HTTPError,对错误进行处理
-如果服务器不存在（就是说链接 http://www.pythonscraping.com/ 打不开，或者是 URL 链接 写错了），urlopen 会返回一个 None 对象-可以增加一个判断语句检测返回的 html 是不是 None
+第一种错误会抛出*HTTPError*,对错误进行处理
+
+如果服务器不存在（就是说链接 http://www.pythonscraping.com/ 打不开，或者是 URL 链接 写错了），*urlopen 会返回一个 None 对象*-可以增加一个判断语句检测返回的 html 是不是 None
 ``` 
 if html is None:
   print("URL not found")
