@@ -74,3 +74,29 @@ aimed_txt = bsObj.findAll("span",{"class":"red"})
 for name in aimed_txt:
   print(name.get_txt())
 ```
+
+
+# BeautifulSoup 中的find() & findAll()
+过滤整个HTML页面，查找需要的标签组或者单个标签
+**findAll(tag, attributes, recursive, text, limit, keywords) 
+find(tag, attributes, recursive, text, keywords)**
+*多个值的储存都是用字典和集合的.*
+tag —> 你可以传如一个标签或者多个标签组成的Python集合作为标签的参数，将会返回一个包含HTML文档中所有标题标签的列表：
+```
+print(bsObj.findAll({"h1","h2","h3","h4","h5","h6"})
+```
+attribute 参数时一个用Python字典封装一个标签的若干属性和对应属性值，属性值可以不唯一，也需要用集合来封装
+```
+print(bsObj.findAll("span",{"class":{"red","green"}}))#返回红蓝两种标签
+```
+### 递归参数recursive用来判断是否遍历子标签
+recursive = True 
+则会查找文档一级标签下的子标签
+
+
+### text ="aimed_context" 
+用标签的文本去匹配查找，返回一个list 但是只包含"aimed_contet"...所以应该用于计数？
+
+limit  限制找的的最多数量，按顺序排
+find 就是findAll(limit = 1)
+
