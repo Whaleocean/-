@@ -53,4 +53,24 @@ if titile == None:
   pirnt("titile do not exist")
 else:
   print(title)
-  
+```
+## .findAll("Tagname",attr = {"class":"parameter"})
+bdObj.Tagname 只能找到第一个标签时Tagname的Data.
+调用.findAll(Tagname) 可以找到所有的带标签名的数据
+参数 attr = {"class":"paramater"} 用字典形式保存的键值对去索引带有该attr的标签数据
+
+> *这个对象是个可迭代的对象iterable，可以用for语句遍历 *
+> 可以* 使用.get_text()把标签中的内容分开显示 * ### 把内容去掉标签后显示
+> .get_text() 会把你正在处理的 HTML 文档中**所有的标签**都清除，然后返回 一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标 签的大段源 > 代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉， 只剩下一串不带标签的文字。
+
+> **BeautifulSoup 对象查找你想要的信息，比直接在 HTML 文本里查找信 息要简单得多。**
+> 通常在你准备打印、存储和操作数据时，应该最后才使 用 .get_text()。一般情况下，你应该尽可能地保留HTML文档的标签结构
+```
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+html = urlopen("http://www.pythonscraping.com/pages/warandpeace.html")
+bsObj = BeautifulSoup(html.read())
+aimed_txt = bsObj.findAll("span",{"class":"red"})
+for name in aimed_txt:
+  print(name.get_txt())
+```
