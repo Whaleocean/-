@@ -16,3 +16,18 @@ else:
   pass
 # is == 区别 右转 "https://foofish.net/what-is-difference-between-is-and-euqals.html"
 ```
+如果标签不存在
+BeautifulSoup返回None对象 如果在对这个None对象操作可能会抛出错误
+try:
+  badContent = bsObj.nonExistingTag.anotherTag
+except AttributeRError as e:
+  print("Tag was not found")
+else: #当没有错误发生的时候
+  if badContent == None:
+    print("Tag was not found")
+  else:
+    print(badcontent)
+    
+  #双重检查.
+  ```
+  
