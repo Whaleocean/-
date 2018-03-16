@@ -61,3 +61,19 @@ for image in images:
 ```
 ## 获得标签属性
 get_text()可以获得内容去掉标签，但有些内容是放在标签里面的比如标签的属性
+
+在网络数据采集时你经常不需要查找标签的内容，而是需要查找标签属性。
+ 比如**标签\<a\> 指向 的 URL 链接包含在 href 属性中**，或者 **\<img\> 标签的图片文件包含在 src 属性中**，这时获取标签属性就变得非常有用了
+  myTag.attrs              #返回的是一个字典对象（类字典，<   >） 
+  myTag.attrs["property"]  #可以通过索引获得和操作这些属性
+  #<xxx  x ="xxxx" > 是一个字典对象，可以通过 .xxx["x"] 来 获取 “xxxx”属性
+
+## lambda表达式在findAll中的作用
+BeautifulSoup 允许我们把特定函数类型当作 findAll 函数的参数。唯一的限制条件是这些 **函数必须把一个标签作为参数且返回结果是布尔类型**。BeautifulSoup 用这个函数来评估它 遇到的每个标签对象，**最后把评估结果为“真”的标签保留**，把其他标签剔除
+
+soup.findAll(lambda tag: len(tag.attrs) == 2)
+
+超越BeaautifulSoup 的库
+lxml
+HTML paprser 
+  
