@@ -9,6 +9,8 @@ soup.tag["attr"]#显示标签中属性内容
 从文档中找到所有<a>标签
 soup. find_all("a")
 
+#值得注意的是，返回的是一个列表，不能得到标签的attributes.
+
 从文档中找到所有在<a>中的连接
 for link in soup.find_all("a"):
   print(link.get("href")
@@ -44,10 +46,15 @@ tag.attrs
 type(tag.string)
 -><class 'bs4.element.NavigableString'>
 ```
-## 不可以对固定位置的string进行修改，但是可以replace one string with another using replace_with()
+**不可以对固定位置的string进行修改，但是可以replace one string with another using replace_with()**
 ```
 tag.string.replace_with('A new NaviableString')
 ```
 如果我们想在外界正常地使用NavigableString,需要把他转化成Unicode地string，否则将占用大量内存
 
+## Navigating using tag names
+soup.head
+soup.body.p
+*Using a tag name as an attribute will give you only the first tag by the nature
+If you need to get all the <a> tags, or anything more complicated than the first tag with a certain name, you’ll need to use one of the methods described in Searching the tree, such as find_all(),which return a list*
 
