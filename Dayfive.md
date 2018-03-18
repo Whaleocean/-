@@ -17,8 +17,23 @@ DELETE 删除一个对象
 两种返回信息格式 XML 和 JSON
 
 案例一 Echonest
+
 案例二 Twitter API   请求限制： 每十五分钟十五次和每十分钟180次，1分钟获得12次Twitter基本信息，但一分钟只能获得一次Follower信息
+python twitter 库
+```
+from twitter import Twitter
+t = Twitter(auth=OAuth(<Access Token>,<Access Token Secret>, <Consumer Key>,<Consumer Secret>))
+pythonTweets = t.search.tweets(q = '#python')
+print(pythonTweets)
+```
+推文以JSON格式数据（JSON字段和内容都用双引号，这是 Python 字符串打印形式的内容）保存
+完整文档在https://github.com/sixohsix/twitter 上查看
 
+案例三 Google API
 
+#### 解析JSON 数据
 
-
+Python 使用了一种更加灵活的方式，把 JSON 转换成字典，JSON 数组转换成列表，JSON 字符串转换成 Python 字符串
+import json
+jsonString ='{"arrayOfNums":[{"number":0},{"number":1},{"number":2}], "arrayOfFruits":[{"fruit":"apple"},{"fruit":"banana"}, {"fruit":"pear"}]}'
+jsonObj = json.loads(jsonString)
