@@ -8,7 +8,7 @@ connection = pymysql.connect(host='localhost',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
-connection = pymysql.connect(host='127.0.0.1',user='root',password='Gjy990325',db='test',charset='utf8',port = 3306,cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect(host='127.0.0.1',user='root',password='XXXXXXXX',db='test',charset='utf8',port = 3306,cursorclass=pymysql.cursors.DictCursor)
 
 Localhost - 127.0.0.1
 db - 以及存在的database
