@@ -45,3 +45,9 @@ def cleanInput(input):
 ```
 **import string 和 string.punctuation 来获取 Python 所有的标点符号**
 在循环体中用 item.strip(string.punctuation) 对内容中的所有单词进行清洗，单词两端 的任何标点符号都会被去掉，但带连字符的单词（连字符在单词内部）仍然会保留。
+
+### 数据标准化
+上面进行清洗过的数据包含太多重复的2-gram序列，程序把没给个2-gram都加入了列表，没有统计过序列的频率
+然而 Python的字典对象是无序的，需要使用collections库中的OrderedDict，Counter
+Counter只能作用于str类型的数据，对ngram的List无效，所以要转化成str(n-gram)
+当然考虑到**大小写因素，可以在cleaInput里使用 input = input.upper()**
