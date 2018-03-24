@@ -50,4 +50,6 @@ def cleanInput(input):
 上面进行清洗过的数据包含太多重复的2-gram序列，程序把没给个2-gram都加入了列表，没有统计过序列的频率
 然而 Python的字典对象是无序的，需要使用collections库中的OrderedDict，Counter
 Counter只能作用于str类型的数据，对ngram的List无效，所以要转化成str(n-gram)
-当然考虑到**大小写因素，可以在cleaInput里使用 input = input.upper()**
+当然考虑到**大小写因素，可以在cleaInput里使用 input = input.upper()，统一大小写**
+### NLTK natural language Toolkit 自然语言工具包
+用于识别和 标记英语文本中各个词的词性（parts of speech）
